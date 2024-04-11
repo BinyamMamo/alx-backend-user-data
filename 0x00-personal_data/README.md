@@ -10,7 +10,6 @@ It covers concepts such as:
 - authenticating to a database 🗄️ securely 🔐.
 
 ## 🔧 Requirements and Dependencies:
-----------------------------------------------
 - Python 3.7 🐍
 - Required libraries:
   - bcrypt 🔐
@@ -18,7 +17,6 @@ It covers concepts such as:
 
 ## 📚 Tasks:
 ### 0. Regex-ing
----------------------
 **📜 Task requirements:** Implement a function called `filter_datum` to obfuscate PII fields in log messages using regex.
 
 **🗂️ Files:** 
@@ -28,7 +26,6 @@ It covers concepts such as:
 - `filtered_logger.py` contains the implementation of the `filter_datum` function using regular expressions to obfuscate PII fields in log messages.
 
 ### 1. Log formatter
----------------------
 **📜 Task requirements:** Implement a custom log formatter class `RedactingFormatter` that filters values in log records using `filter_datum`.
 
 **🗂️ Files:** 
@@ -38,7 +35,6 @@ It covers concepts such as:
 - `filtered_logger.py` contains the implementation of the `RedactingFormatter` class, which formats log records to filter PII fields using the `filter_datum` function.
 
 ### 2. Create logger
----------------------
 **📜 Task requirements:** Implement a function `get_logger` to create a logger object with specific configurations, including a custom log formatter.
 
 **🗂️ Files:** 
@@ -48,7 +44,6 @@ It covers concepts such as:
 - `filtered_logger.py` contains the implementation of the `get_logger` function to create a logger with customized settings for PII filtering.
 
 ### 3. Connect to secure database
----------------------
 **📜 Task requirements:** Implement a function `get_db` to connect securely to a database using environment variables for credentials.
 
 **🗂️ Files:** 
@@ -58,7 +53,6 @@ It covers concepts such as:
 - `filtered_logger.py` contains the implementation of the `get_db` function to establish a secure connection to a MySQL database using environment variables.
 
 ### 4. Read and filter data
----------------------
 **📜 Task requirements:** Implement a function to retrieve and display data from a database while filtering PII fields in the output log.
 
 **🗂️ Files:** 
@@ -68,7 +62,6 @@ It covers concepts such as:
 - `filtered_logger.py` contains the implementation of the main function to retrieve and display data from a database with filtered PII fields in the log output.
 
 ### 5. Encrypting passwords
----------------------
 **📜 Task requirements:** Implement a function `hash_password` to securely hash passwords using bcrypt.
 
 **🗂️ Files:** 
@@ -78,7 +71,6 @@ It covers concepts such as:
 - `encrypt_password.py` contains the implementation of the `hash_password` function to securely hash passwords using bcrypt.
 
 ### 6. Check valid password
----------------------
 **📜 Task requirements:** Implement a function `is_valid` to validate passwords against their hashed counterparts using bcrypt.
 
 **🗂️ Files:** 
@@ -115,5 +107,5 @@ In this project 📚, I learned:
 ██╔══██║██║      ██╔██╗     ╚════██║██║███╗██║██╔══╝  
 ██║  ██║███████╗██╔╝ ██╗    ███████║╚███╔███╔╝███████╗
 ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝    ╚══════╝ ╚══╝╚══╝ ╚══════╝
-                                                      
+
 </pre>
