@@ -11,7 +11,7 @@ from typing import List
 def filter_datum(fields: List[str], redaction: str, message: str,
                  separator: str) -> str:
     """
-    Filters personal data from log messages.
+    Filters personal data from log messages
 
     Parameters:
         fields (list): List of field names to redact
