@@ -9,7 +9,7 @@ import re
 
 def filter_datum(fields, redaction, message, separator):
     """
-    Filters personal data from log messages
+    Filters personal data from log messages.
 
     Parameters:
         fields (list): List of field names to redact
