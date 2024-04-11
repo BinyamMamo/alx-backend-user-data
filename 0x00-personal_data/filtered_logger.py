@@ -4,9 +4,9 @@ Task 0. Regex-ing
 Write a function called `filter_datum`
 that returns the log message obfuscated
 """
+import logging
 import re
 from typing import List
-import logging
 
 
 class RedactingFormatter(logging.Formatter):
@@ -18,9 +18,10 @@ class RedactingFormatter(logging.Formatter):
     FORMAT = "[HOLBERTON] %(name)s %(levelname)s %(asctime)-15s: %(message)s"
     SEPARATOR = ";"
 
-    def __init__(self, fields):
+    def __init__(self, fields: List[str]):
         """ Initialize the RedactingFormatter object
         """
+        self.fields = fields
         super(RedactingFormatter, self).__init__(self.FORMAT)
 
     def format(self, record: logging.LogRecord) -> str:
