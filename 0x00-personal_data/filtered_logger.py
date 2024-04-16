@@ -5,10 +5,10 @@ Write a function called `filter_datum`
 that returns the log message obfuscated
 """
 import logging
+import mysql.connector
 import os
 import re
 from typing import List
-import mysql.connector
 
 
 class RedactingFormatter(logging.Formatter):
