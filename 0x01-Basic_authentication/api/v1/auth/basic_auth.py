@@ -57,8 +57,7 @@ class BasicAuth(Auth):
         match a user object in the database
         """
         if (isinstance(user_email, str) and
-            isinstance(user_email, str) and
-                user_email and user_pwd):
+                isinstance(user_pwd, str)):
             result = User.search({"email": user_email})
 
             if (result and len(result) > 0 and
@@ -66,4 +65,3 @@ class BasicAuth(Auth):
                 return result[0]
 
         return None
-
