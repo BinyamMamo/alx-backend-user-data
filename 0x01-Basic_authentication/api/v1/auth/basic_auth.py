@@ -5,6 +5,7 @@ basic_auth.py
 """
 from api.v1.auth.auth import Auth
 from flask import request
+from models.user import User
 from typing import List, TypeVar, Tuple
 import base64
 import binascii
@@ -48,3 +49,16 @@ class BasicAuth(Auth):
             return (None, None)
 
         return tuple(decoded_base64_authorization_header.split(":", 1))
+
+    def user_object_from_credentials(
+            self, user_email: str, user_pwd: str) -> TypeVar('User'):
+        if (isinstance(user_email, str) and
+            isinstance(user_email, str) and
+                user_email and user_pwd):
+            result = User.search({"email": user_email})
+
+            if (result and len(result) > 0 and
+                    result[0].is_valid_password(user_pwd)):
+                return result[0]
+
+        return None
