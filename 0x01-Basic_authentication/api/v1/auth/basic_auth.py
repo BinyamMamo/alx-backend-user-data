@@ -41,6 +41,6 @@ class BasicAuth(Auth):
             self, decoded_base64_authorization_header: str) -> Tuple[str, str]:
         if (not isinstance(decoded_base64_authorization_header, str) or
                 ":" not in decoded_base64_authorization_header):
-            return None, None
+            return (None, None)
 
-        return tuple(decoded_base64_authorization_header.split(":"))
+        return tuple(decoded_base64_authorization_header.split(":", 1))
