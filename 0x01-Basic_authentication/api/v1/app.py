@@ -49,6 +49,7 @@ def before_request():
     if not auth.require_auth(request.path, excluded_paths):
         return
 
+    print(auth.require_auth(request.path, excluded_paths))
     if auth.authorization_header(request) is None:
         abort(401)
     if auth.current_user(request) is None:
@@ -62,4 +63,8 @@ if __name__ == "__main__":
     if auth_type == "auth":
         from api.v1.auth.auth import Auth
         auth = Auth()
+    elif auth_type == "basic_auth":
+        from api.v1.auth.basic_auth import BasicAuth
+        auth = BasicAuth()
+
     app.run(host=host, port=port, debug=True)
