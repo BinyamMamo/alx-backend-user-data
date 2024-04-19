@@ -1,5 +1,8 @@
+#!/usr/bin/env python3
 """
-Module containing authentication classes and functions.
+auth.py
+
+contains authentication functions and classes.
 """
 from flask import request
 from typing import List, TypeVar
