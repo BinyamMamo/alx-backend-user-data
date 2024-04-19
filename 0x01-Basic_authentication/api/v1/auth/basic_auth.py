@@ -52,6 +52,10 @@ class BasicAuth(Auth):
 
     def user_object_from_credentials(
             self, user_email: str, user_pwd: str) -> TypeVar('User'):
+        """
+        Checks if user email and password
+        match a user object in the database
+        """
         if (isinstance(user_email, str) and
             isinstance(user_email, str) and
                 user_email and user_pwd):
@@ -62,3 +66,4 @@ class BasicAuth(Auth):
                 return result[0]
 
         return None
+
