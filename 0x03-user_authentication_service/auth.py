@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""A module for authentication-related routines.
+"""
+Authentication module
 """
 import bcrypt
 from db import DB
