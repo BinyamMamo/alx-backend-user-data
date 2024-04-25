@@ -16,9 +16,9 @@ class User(Base):
     User model that defines the users table.
     Contains basic user information and authentication information.
     """
-    
+
     __tablename__ = "users"
-    
+
     id = Column(Integer, primary_key=True)
     email = Column(String(250), nullable=False)
     hashed_password = Column(String(250), nullable=False)
