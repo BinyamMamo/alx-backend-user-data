@@ -2,11 +2,16 @@
 """DB module
 """
 from sqlalchemy import create_engine
+from sqlalchemy.exc import InvalidRequestError
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.orm.session import Session
-
 from user import Base, User
+
+
+VALID_FIELDS = ['id', 'email', 'hashed_password', 'session_id',
+                'reset_token']
 
 
 class DB:
@@ -38,3 +43,30 @@ class DB:
         self._session.commit()
 
         return user
+
+    def find_user_by(self, **kwargs) -> User:
+        """
+        Find a user in the database based on the given keyword arguments
+        """
+        if not kwargs or any(x not in VALID_FIELDS for x in kwargs):
+            raise InvalidRequestError
+
+        try:
+            return self._session.query(User).filter_by(**kwargs).one()
+        except Exception:
+            raise NoResultFound
+
+
+    def update_user(self, user_id: int, **kwargs) -> None:
+        """
+        Updates an existing user in the database
+        by setting the given keyword arguments
+        """
+        user = self.find_user_by(id=user_id)
+
+        for k, v in kwargs.items():
+            if k not in VALID_FIELDS:
+                raise ValueError
+            setattr(user, k, v)
+
+        self._session.commit()
