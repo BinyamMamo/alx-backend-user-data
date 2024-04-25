@@ -38,6 +38,9 @@ class DB:
     def add_user(self, email: str, hashed_password: str) -> User:
         """Adds a new user to the database
         """
+        if not email or not hashed_password:
+            return
+
         user = User(email=email, hashed_password=hashed_password)
         self._session.add(user)
         self._session.commit()
@@ -55,7 +58,6 @@ class DB:
             return self._session.query(User).filter_by(**kwargs).one()
         except Exception:
             raise NoResultFound
-
 
     def update_user(self, user_id: int, **kwargs) -> None:
         """
